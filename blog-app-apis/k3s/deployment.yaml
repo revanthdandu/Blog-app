@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springblogapp-deployment
+  labels:
+    app: springblogapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: springblogapp
+  template:
+    metadata:
+      labels:
+        app: springblogapp
+    spec:
+      containers:
+      - name: spingblogapp
+        image: revanthdandu/springblogapp:v1
+        ports:
+        - containerPort: 8080
